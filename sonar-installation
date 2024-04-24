@@ -13,3 +13,24 @@ sudo su sonar
 cd /opt/sonar76/bin/linux-x86-64
 ./sonar.sh start
 ./sonar.sh status
+
+# or add the systemd service
+#  vi /etc/systemd/system/sonar.service
+# [Unit]
+# Description=SonarQube service
+# After=syslog.target network.target
+# [Service]
+# Type=forking
+# ExecStart=/opt/sonar76/bin/linux-x86-64/sonar.sh start
+# ExecStop=/opt/sonar76/bin/linux-x86-64/sonar.sh stop
+# User=sonar
+# Group=sonar
+# Restart=always
+# LimitNOFILE=65536
+# LimitNPROC=4096
+# [Install]
+# WantedBy=multi-user.target
+
+# systemctl daemon-reload
+#systemctl enable --now sonarqube
+#systemctl status sonarqube
