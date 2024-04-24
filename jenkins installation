@@ -9,4 +9,4 @@ systemctl start jenkins
 systemctl status jenkins
 
 
-#Port 9000
+#Port 8080
