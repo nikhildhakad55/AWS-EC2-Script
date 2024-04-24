@@ -1,0 +1,15 @@
+#sonarqube installation(t2-medium)
+#Port 9000
+
+sudo yum install java-1.8.0 -y
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.6.zip -P /opt
+unzip /opt sonarqube-7.6.zip
+mv sonarqube-7.6.zip sonar76
+groupadd sonar
+useradd -g sonar sonar
+chown -R sonar:sonar /opt/sonar76
+cd /opt/sonar76/bin/linux-x86-64/
+sudo su sonar
+cd /opt/sonar76/bin/linux-x86-64
+./sonar.sh start
+./sonar.sh status
